@@ -1,0 +1,15 @@
+{
+  "name": "github-explorer",
+  "version": "1.0.0",
+  "description": "Based on Ember 1.4.0\r ```bower install```\r ```npm install```",
+  "main": "index.js",
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

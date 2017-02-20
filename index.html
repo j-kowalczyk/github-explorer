@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Github explorer</title>
+
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Github Club</a>
+        </div>
+    </div>
+</div>
+
+<div id="app-root"></div>
+
+
+<script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="bower_components/handlebars/handlebars.js"></script>
+
+<script src="bower_components/ember/ember.debug.js"></script>
+<!-- should be:
+
+Ember 1.4.0
+jQuery >=1.7 && <=2.1
+Handlebars
+
+-->
+<script type="text/javascript" src="bower_components/moment/moment.js"></script>
+<script type="text/javascript">
+
+
+    window.Github = Ember.Application.create({});
+    console.log(Github);
+</script>
+</body>
+</html>
