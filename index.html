@@ -5,6 +5,7 @@
     <title>Github explorer</title>
 
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -20,17 +21,70 @@
         </div>
     </div>
 </div>
-<p>.</p>
-<p></p>
-<p></p>
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <script type="text/x-handlebars">
-                <h1>Hello From Embah</h1>
-            </script>
+<div class="container container__content" id="github-app">
+    <script type="text/x-handlebars" data-template-name="application">
+        <div class="row">
+            <div class="col-md-12" >
+                {{outlet}}
+            </div>
         </div>
-    </div>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="index">
+        <h1>Github Club</h1>
+        <hr />
+        <p>This is the Github explorer.</p>
+        <ul>
+            {{#each }}
+            <li>{{#link-to 'user' this }} {{ name }} {{/link-to}}</a></li>
+            {{/each}}
+        </ul>
+        {{renderedOn}}
+        <p>
+            <button class="btn btn-success" {{action "clickMe"}}>Click Me!</button>
+        </p>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="user">
+        <div class="row">
+            <div class="col-md-3 container__content">
+                <div class="well">
+
+                    <p class="text-center">
+                        {{#link-to 'user' this}}<img {{bind-attr src=avatar_url}} class="pic" />{{/link-to}}
+                    </p>
+                    <h4>{{#link-to 'user' this}}{{name}}{{/link-to}}</h4>
+                    <p>
+                        {{company}}<br/>
+                        {{location}}<br/>
+                        {{email}}<br/>
+                    </p>
+                    <hr/>
+                    <table class="table table-responsive">
+                        <tr><td>Followers:</td><td>{{followers}}</td></tr>
+                        <tr><td>Repos:</td><td>{{public_repos}}</td></tr>
+                        <tr><td>Gists:</td><td>{{public_gists}}</td></tr>
+                    </table>
+                    <p>
+                        {{#link-to "index"}}Back{{/link-to}}
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-8 container__content">
+                <h2>{{name}}'s Github</h2>
+                <hr />
+                <ul>
+                    <li><a href="#">Repositories</a></li>
+                    <li><a href="#">News and events</a></li>
+                    <li><a href="#">Gists</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+    </script>
+
+
 </div>
 <div id="app-root"></div>
 
@@ -38,7 +92,7 @@
 <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
 <script type="text/javascript" src="bower_components/handlebars/handlebars.js"></script>
 
-<script src="bower_components/ember/ember.debug.js"></script>
+<script src="bower_components/ember/ember.js"></script>
 <!-- should be:
 
 Ember 1.4.0
@@ -47,11 +101,7 @@ Handlebars 1.1.2
 
 -->
 <script type="text/javascript" src="bower_components/moment/moment.js"></script>
-<script type="text/javascript">
-
-    window.Github = Ember.Application.create({});
-    console.log(Github);
-
+<script type="text/javascript" src="script.js">
 </script>
 </body>
 </html>
